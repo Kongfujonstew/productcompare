@@ -1,0 +1,94 @@
+body, html, div, h1, form, img, p {
+  font-size: 1em;
+  font-family: raleway;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 560px;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/*Header and Footer*/
+header, footer {
+  background-color: black;
+  color: white;
+  font-size: 1.25em;
+  line-height: 1.75em;
+  min-width: 560px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/*Login*/
+.login {
+  line-height: 2em;
+  overflow: hidden;
+}
+
+.login .userMessage {
+  float: left;
+  overflow: hidden;
+  padding-left: 10px;
+  width: 50%;
+}
+
+
+.login .toggle {
+  float: right;
+  padding-right: 10px;
+}
+
+.login .toggle:hover {
+  cursor: pointer;
+}
+
+.search {
+  clear: left;
+  text-align: center;
+}
+
+.searchInput {
+  outline: none;
+}
+
+.searchDiv {
+  background-color: coral;
+  border-radius: 1em;
+  color: white;
+  line-height: 2em;
+  margin: 0 auto;
+  max-width: 900px;
+  outline: none;
+  padding-left:  1em;
+  text-align: left;
+  text-transform: bold;
+  width: 75%;
+}
+
+.searchButton {
+  
+}
+
+.searchButton .invalid {
+  
+}
+
+.searchButton:hover {
+  cursor: pointer;
+}

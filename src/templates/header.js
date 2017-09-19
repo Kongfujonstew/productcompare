@@ -1,1 +1,1 @@
-export default `<header>HEADER</header>`;
+export default `<header>Thank you, team Lazada</header>`;

@@ -7,8 +7,8 @@ export default `<!DOCTYPE html>
         <meta charset="utf-8">
         <title>Lazada 4 me</title>
         <link rel="stylesheet" href="/styles/styles.css">
-        <link rel="icon" href="/favicon/image.png" type="image/x-icon">
-    <!--     <link href="https://fonts.googleapis.com/css?family=Lato|Nothing+You+Could+Do" rel="stylesheet"> -->
+        <link rel="icon" href="/favicon/image.png">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <script src="/app.js" defer></script>
       </head>
       <body>

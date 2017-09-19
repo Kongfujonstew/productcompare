@@ -1,13 +1,10 @@
-import html from '../templates/home';
-
 export const authenticate = (req, res, next) => {
   console.log('authenticate', req.cookies);
 
   if (req.cookies.loggedIn !== true) {
     res.write(html);
-    res.end();
+    res.redirect('/');
   }
-
   next();
 };
 

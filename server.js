@@ -1,16 +1,20 @@
 import express from 'express';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
 import path from 'path';
 
-import { authenticate, login, logout } from './src/auth/index';
+import getProductData from './API/index';
+import { authenticate, login, logout } from './middleware/auth/index';
 import html from './src/templates/home';
 
 const app = express();
 const port = 8888;
 app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, './src/public')));
-app.use(cookieParser())
 
 app.use((req, res, next) => {
   console.log(req.cookies.loggedIn);
@@ -31,7 +35,8 @@ app.use('/admin', (req, res) => {
 });
 
 app.use('/search', (req, res) => {
-
+  console.log('search request received on server');
+  getProductData(req, res);
 });
 
 app.use((req, res) => {
