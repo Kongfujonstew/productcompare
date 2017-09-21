@@ -5,15 +5,17 @@ import Nav from './Nav';
 import Login from './Login';
 import Routes from './Routes';
 import Search from './Search';
+import Results from './Results';
+import Home from './Home';
 
-import { browserAuthenticate, login, logout, warnUser } from './js/index';
+import { browserAuthenticate, login, logout, warnUser } from './js/auth';
 
 class Main extends React.Component {
   constructor () {
     super();
     this.state = {
       loggedIn: false,
-      userMessage: 'Please log in.',
+      userMessage: 'Please log in. You must log in to search. ->',
       loading: false,
       productData1: {},
       productData2: {}
@@ -24,12 +26,18 @@ class Main extends React.Component {
     browserAuthenticate(this);
   }
 
-  updateProductData (obj1, obj2) {
-    this.setState({
-      productData1: obj1,
-      productData2: obj2
-    })
+  updateProductData (productDataObj) {
+    this.setState({ 
+      productData1: productDataObj.productData1,
+      productData2: productDataObj.productData2
+    });
   }
+
+  updateLoadingState (state) {
+    this.setState({
+      loading: state
+    });
+  } 
 
   mainLogin () {
     login().then(() => {
@@ -62,10 +70,24 @@ class Main extends React.Component {
         />
         <Routes />
         <Route 
+          path="/results"
+          exact
+          render={(props) => (<Results {...props}
+            updateProductData={this.updateProductData.bind(this)}
+            updateLoadingState={this.updateLoadingState.bind(this)}
+            browserAuthenticate={this.browserAuthenticate.bind(this)}
+            updateUserMessage={this.updateUserMessage.bind(this)}
+            productData1={this.state.productData1}
+            productData2={this.state.productData2}
+            loading={this.state.loading}
+          />)}
+        />
+        <Route 
           path="/"
           exact
-          render={(props) => (<Search {...props}
+          render={(props) => (<Home {...props}
             updateProductData={this.updateProductData.bind(this)}
+            updateLoadingState={this.updateLoadingState.bind(this)}
             browserAuthenticate={this.browserAuthenticate.bind(this)}
             updateUserMessage={this.updateUserMessage.bind(this)}
           />)}
@@ -76,4 +98,3 @@ class Main extends React.Component {
 };
 
 export default Main;
-

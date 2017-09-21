@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Page from './Page';
-import navPages from './js/nav.js';
+import navPages from './js/pageData.js';
 
 export default () => {
   return (

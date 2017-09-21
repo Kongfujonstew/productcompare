@@ -1,20 +1,9 @@
 import axios from 'axios';
 import cookies from 'browser-cookies';
 
-export const getProductData = (url1, url2) => {
-  console.log('calling getProductData');
-  const api = 'http://localhost:8888/search';
-  return axios.post(api, {
-    data: {
-      url1,
-      url2
-    }
-  })
-};
-
 export const login = () => {
   const api = 'http://localhost:8888/login';
-  return axios.post(api);
+  return axios.post(api).catch((err) => console.log('login error: ', err));
 };
 
 export const logout = () => {
@@ -25,7 +14,7 @@ export const isLoggedIn = () => {
   return cookies.get('loggedIn') === 'true';
 };
 
-export const browserAuthenticate = (main, message='Please log in.') => {
+export const browserAuthenticate = (main, message='Please log in. You must log in to search.') => {
   if (isLoggedIn()) {
     main.setState({
       loggedIn:true

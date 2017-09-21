@@ -1,1 +1,1 @@
-export default `<footer>Jon Michael Stewart || Thank you, team Lazada</footer>`;
+export default `<footer>Jon Michael Stewart</footer>`;

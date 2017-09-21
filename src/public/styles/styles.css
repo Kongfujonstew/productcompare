@@ -1,11 +1,16 @@
-body, html, div, h1, form, img, p {
+body, html, div, h1, form, img, p, ul {
   font-size: 1em;
   font-family: raleway;
   margin: 0;
   padding: 0;
 }
 
-body {
+html {
+  height: 100%;
+  background-image: url('../images/background.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
   min-width: 560px;
 }
 
@@ -26,13 +31,32 @@ header, footer {
   line-height: 1.75em;
   min-width: 560px;
   text-align: center;
-  text-transform: capitalize;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+/*Nav*/
+nav {
+  text-align: right;
+  line-height: 3em;
+  height: 3em;
+}
+
+nav ul {
+  background-color: white;
+}
+
+nav a {
+  margin-right: 30px;
+}
+
+.logo {
+  float: left;
+  height: 3em;
 }
 
 /*Login*/
@@ -48,7 +72,6 @@ footer {
   width: 50%;
 }
 
-
 .login .toggle {
   float: right;
   padding-right: 10px;
@@ -60,35 +83,50 @@ footer {
 
 .search {
   clear: left;
-  text-align: center;
-}
-
-.searchInput {
-  outline: none;
 }
 
 .searchDiv {
-  background-color: coral;
-  border-radius: 1em;
-  color: white;
+  background: rgba(0, 0, 0, .5);
+  border: 2px solid white;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 1px black;
+  color: black;
   line-height: 2em;
-  margin: 0 auto;
+  margin: 15px 30px;
+  max-height: 2em;
   max-width: 900px;
   outline: none;
+  overflow: hidden;
+  opacity: .7;
   padding-left:  1em;
+  padding-right: 1em;
   text-align: left;
   text-transform: bold;
-  width: 75%;
+  width: 15%;
+  transition: all .5s ease-out;
 }
 
-.searchButton {
-  
+.searchDiv:focus {
+  width: 62%;
 }
 
-.searchButton .invalid {
-  
+.buttonStyle {
+  background: #4f4f4f;
+  /*background-color: white;*/
+  color: white;
+  line-height: 2em;
+  /*opacity: .7;*/
+  box-shadow: 2px 2px 2px 1px black;
+  text-align: center;
+  text-transform: bold;
+  width: 15%;
+  transition: all .25s ease-out;
 }
 
-.searchButton:hover {
+.buttonStyle:hover {
+  /*background: #edf9d6;*/
+  /*box-shadow: 2px 2px 2px 1px #324c01;*/
+  color: lightgreen;
   cursor: pointer;
+  /*transform: translate(10px 1px);*/
 }

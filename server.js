@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, './src/public')));
 
 app.use((req, res, next) => {
-  console.log(req.cookies.loggedIn);
+  console.log('request received, loggedIn: ', req.cookies.loggedIn);
   next();
 })
 
@@ -35,7 +35,7 @@ app.use('/admin', (req, res) => {
 });
 
 app.use('/search', (req, res) => {
-  console.log('search request received on server');
+  console.log('search request received');
   getProductData(req, res);
 });
 

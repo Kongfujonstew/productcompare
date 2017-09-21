@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Route } from 'react-router-dom';
 
-import { login, logout } from './js/index';
+import { login, logout } from './js/auth';
 
 class Login extends React.Component {
   constructor (props) {
@@ -11,7 +11,7 @@ class Login extends React.Component {
 
   render () {
     const style = {
-      backgroundColor: this.props.loggedIn ? "lightgreen" : "orange"
+      backgroundColor: this.props.loggedIn ? "lightgreen" : "gold"
     };
 
     return (

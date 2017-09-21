@@ -9,13 +9,13 @@ import { BrowserRouter } from 'react-router-dom';
 import Main from '../components/Main.js';
 
 // const store = createStore(reducers);
-const context = {};
+// const context = {};
 
 // console.log('app.js bootstraps. store state: ', store.getState());
 
 render(<BrowserRouter
           location={window.location}
-          context={context}
+          // context={context}
         >
           <Main />
         </BrowserRouter>,

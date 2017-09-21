@@ -1,73 +1,48 @@
 import axios from 'axios';
+import cheerio from 'cheerio';
+import productDataPrototype from './productDataObj';
 
-const getSinglePageData = (url) => {
+const getHTML = (url) => {
   return axios.get(url);
 };
 
-const handlePageData = (pageData) => {
-  console.log('hPD called');
-  pageData = {toes: 10, fingers: 10};
+const parseBody = (html) => {
+  let productDataObj = productDataPrototype;
+  let $ = cheerio.load(html);
 
-  return pageData;
+  productDataObj.product = $('#prod_title').text();
+  productDataObj.price = $('#product_price').text();
+  productDataObj.productDescription = $('.product-description__title').text();
+  productDataObj.pictureDataURL = $('#productZoom').attr('data-zoom-image');
+
+  $('.inbox__item').each((index, li) => {
+    let inBoxItem = $(li).text();
+    productDataObj.inBox.push(inBoxItem);
+  });
+
+  $('.specification-table tr').each((index, tr) => {
+    let property = $(tr).children().first().text();
+    let value = $(tr).children().eq(1).text();
+    productDataObj.generalFeatures[property] = value;
+  })
+  
+  return productDataObj;
 };
-
-const renderPageOnBrowser = (req, res, data) => {
-  res.write(data);
-  res.send();
-}
 
 export default (req, res) => {
   const { url1, url2 } = req.body.data;
-  let pageData1, productData1;
-  let pageData2, productData2;
+  let htmlData1, productData1;
+  let htmlData2, productData2;
   let response = {};
 
-  getSinglePageData(url1).then((data1) => {
-    pageData1 = data1;
-    getSinglePageData(url2).then((data2) => {
-      pageData2 = data2;
-      console.log('WE ARE HERE');
-      // renderPageOnBrowser(req, res, pageData1);
-
-      // res.write(data2);
-      // res.send();
-      // productData1 = handlePageData(pageData1);
-      // productData2 = handlePageData(pageData2);
-      // response = JSON.stringify({ productData1, productData2});
-      res.write('hello');
-      res.send();
-    });
-  });
+  getHTML(url1).then((data1) => {
+    htmlData1 = data1.data;
+    productData1 = parseBody(htmlData1);
+    getHTML(url2).then((data2) => {
+      htmlData2 = data2.data;
+      productData2 = parseBody(htmlData2);
+      response = { productData1, productData2 };
+      res.send(JSON.stringify(response));
+    }).catch((err) => console.log('pageData2 error: ', err));
+  }).catch((err) => console.log('pageData1 error: ', err));
 };
-
-
-// import axios from 'axios';
-
-// const getSinglePageData = (url) => {
-//   return axios.get(url);
-// };
-
-// const handlePageData = (pageData) => {
-//   console.log('hPD called');
-//   pageData = {toes: 10, fingers: 10};
-
-//   return pageData;
-// };
-
-// export default (req, res) => {
-//   const { url1, url2 } = req.body.data;
-//   let pageData1, productData1;
-//   let pageData2, productData2;
-//   let response;
-
-//   getSinglePageData(url1).then((data1) => {
-//     pageData1 = data1;
-//     getSinglePageData(url2).then((data2) => {
-//       pageData2 = data2;
-//       productData1 = handlePageData(pageData1);
-//       productData2 = handlePageData(pageData2);
-//       response = JSON.stringify({ productData1, productData2});
-//       res.send(response);
-//     });
-//   });
-// };
