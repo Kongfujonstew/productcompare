@@ -1,0 +1,153 @@
+$background-image: url('../images/background.jpg');
+$welcome-image: url('../images/welcome.png');
+
+$main-text-color: white;
+$main-text-size: 22px;
+$main-text-margin: 30px;
+$main-text-bold: bold;
+$highlight-color: lightgreen;
+$card-background-color: rgba(255,250,250,.7);
+
+@import 'base';
+@import 'text';
+@import 'loader';
+
+/*Cards and Buttons*/
+.card {
+  background-color: $card-background-color;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 1px black;
+  line-height: 2em;
+  margin: 15px 30px;
+}
+
+.button {
+  background: #4f4f4f;
+  color: white;
+  line-height: 2em;
+  box-shadow: 2px 2px 2px 1px black;
+  margin: 30px;
+  text-align: center;
+  text-transform: bold;
+  width: 15%;
+  transition: all .25s ease-out transform;
+  &:hover {
+    color: $highlight-color;
+    cursor: pointer; 
+  }
+  &:active {
+    box-shadow: 1px 1px 1px 1px black;
+    transform: translateX(1px);
+    transform: translateY(1px);  
+  }
+}
+
+/*Nav*/
+nav {
+  text-align: right;
+  line-height: 3em;
+  height: 3em;
+  ul {
+    background-color: white;
+  }
+  a {
+    margin-right: 30px;
+  }
+  .logo {
+    float: left;
+    height: 3em;
+  }
+}
+
+/*Login*/
+.login {
+  line-height: 2em;
+  overflow: hidden;
+  .userMessage {
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 70%;
+  }
+  .toggle {
+    float: right;
+    padding-right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/*Home and Welcome*/
+.welcome {
+  background-image: $welcome-image;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 15px auto 0 auto;
+  width: 200px;
+  height: 70px;
+}
+
+/*Search*/
+.searchDiv {
+  color: darken($highlight-color, 30%);
+  max-height: 2em;
+  max-width: 900px;
+  outline: none;
+  overflow: hidden;
+  opacity: .7;
+  margin-left: 90px;
+  padding-left:  1em;
+  padding-right: 1em;
+  text-align: left;
+  text-transform: bold;
+  width: 62%;
+  transition: all .3s ease-out;
+}
+
+.checkmark {
+  display: inline-block;
+  float: left;
+  margin-left: 30px;
+  opacity: 0;
+  width: 40px;
+  -webkit-filter: brightness(160%);
+  transition: all .5s ease-in;
+}
+
+.action .button {
+  margin: 0 auto;
+}
+
+/*Results and Table*/
+.results {
+  .button {
+    margin-bottom: 70px;
+  }
+  .table {
+    .card {
+      padding: 15px 5px 5px 5px;
+    }
+    td {
+      padding: 5px;
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 1.5em;
+      text-transform: bold;
+      border-top: 1px solid grey;
+    }
+  }
+}
+
+/*Pages*/
+.page {
+  .card {
+    margin: 30px auto;
+    padding: 30px;
+    width: 80%;
+  }
+  .button {
+    margin: 135px auto;
+  }
+}

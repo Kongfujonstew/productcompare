@@ -1,0 +1,191 @@
+body, html, div, h1, form, img, p, ul, tr {
+  font-size: 1em;
+  font-family: raleway;
+  margin: 0;
+  padding: 0; }
+
+html {
+  height: 100%;
+  background-image: url("../images/background.jpg");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  min-width: 700px; }
+
+body {
+  height: 100%;
+  overflow: auto; }
+
+main {
+  margin-top: 34px;
+  width: 100%; }
+
+a {
+  color: black;
+  text-decoration: none; }
+
+table {
+  border-spacing: 0; }
+
+/*Header and Footer*/
+header, footer {
+  background-color: black;
+  color: white;
+  font-size: 1.25em;
+  line-height: 1.75em;
+  min-width: 560px;
+  position: fixed;
+  text-align: center;
+  width: 100%; }
+
+header {
+  top: 0; }
+
+footer {
+  bottom: 0; }
+
+.login, .page p, ul, a, .button {
+  font-size: 22px; }
+
+h1 {
+  color: white;
+  font-size: 22px;
+  margin: 30px;
+  text-transform: bold; }
+
+.clickable {
+  text-decoration-style: underline;
+  color: lightgreen; }
+  .clickable:hover {
+    cursor: pointer; }
+
+.loader {
+  border: 16px solid rgba(255, 255, 255, 0.7);
+  border-top: 16px lightgreen;
+  border-radius: 50%;
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+  animation: rotate 1.3s linear infinite; }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/*Cards and Buttons*/
+.card {
+  background-color: rgba(255, 250, 250, 0.7);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 1px black;
+  line-height: 2em;
+  margin: 15px 30px; }
+
+.button {
+  background: #4f4f4f;
+  color: white;
+  line-height: 2em;
+  box-shadow: 2px 2px 2px 1px black;
+  margin: 30px;
+  text-align: center;
+  text-transform: bold;
+  width: 15%;
+  transition: all .25s ease-out transform; }
+  .button:hover {
+    color: lightgreen;
+    cursor: pointer; }
+  .button:active {
+    box-shadow: 1px 1px 1px 1px black;
+    transform: translateX(1px);
+    transform: translateY(1px); }
+
+/*Nav*/
+nav {
+  text-align: right;
+  line-height: 3em;
+  height: 3em; }
+  nav ul {
+    background-color: white; }
+  nav a {
+    margin-right: 30px; }
+  nav .logo {
+    float: left;
+    height: 3em; }
+
+/*Login*/
+.login {
+  line-height: 2em;
+  overflow: hidden; }
+  .login .userMessage {
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 70%; }
+  .login .toggle {
+    float: right;
+    padding-right: 10px; }
+    .login .toggle:hover {
+      cursor: pointer; }
+
+/*Home and Welcome*/
+.welcome {
+  background-image: url("../images/welcome.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 15px auto 0 auto;
+  width: 200px;
+  height: 70px; }
+
+/*Search*/
+.searchDiv {
+  color: #1ec71e;
+  max-height: 2em;
+  max-width: 900px;
+  outline: none;
+  overflow: hidden;
+  opacity: .7;
+  margin-left: 90px;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: left;
+  text-transform: bold;
+  width: 62%;
+  transition: all .3s ease-out; }
+
+.checkmark {
+  display: inline-block;
+  float: left;
+  margin-left: 30px;
+  opacity: 0;
+  width: 40px;
+  -webkit-filter: brightness(160%);
+  transition: all .5s ease-in; }
+
+.action .button {
+  margin: 0 auto; }
+
+/*Results and Table*/
+.results .button {
+  margin-bottom: 70px; }
+
+.results .table .card {
+  padding: 15px 5px 5px 5px; }
+
+.results .table td {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.5em;
+  text-transform: bold;
+  border-top: 1px solid grey; }
+
+/*Pages*/
+.page .card {
+  margin: 30px auto;
+  padding: 30px;
+  width: 80%; }
+
+.page .button {
+  margin: 135px auto; }

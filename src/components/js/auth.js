@@ -2,11 +2,13 @@ import axios from 'axios';
 import cookies from 'browser-cookies';
 
 export const login = () => {
+  console.log('Logging user in . . . ');
   const api = 'http://localhost:8888/login';
   return axios.post(api).catch((err) => console.log('login error: ', err));
 };
 
 export const logout = () => {
+  console.log('Logging user out.');
   cookies.set('loggedIn', 'false');
 };
 

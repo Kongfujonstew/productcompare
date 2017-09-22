@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 console.log('Building  . . . process.env.NODE_ENV: ', process.env.NODE_ENV);
 
@@ -24,20 +23,13 @@ module.exports = (env) => {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel-loader'
+        },
+        {
+          test:/\.less$/,
+          exclude:'/node_modules',
+          loader:"lessloader"
         }
-        // ,
-        // {
-        //   test: /\.css$/,
-        //   loader: ExtractTextPlugin.extract({
-        //     fallback: 'style',
-        //     use: 'css'
-        //   }),
-        // }
       ]
     }
-    // ,
-    // plugins: [
-    //   new ExtractTextPlugin('bundle.css', {allChunks: true})
-    // ]
   }
 };

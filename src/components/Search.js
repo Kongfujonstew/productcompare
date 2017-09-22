@@ -79,7 +79,7 @@ class Search extends React.Component {
       <div className="search">
         <h1>Product Comparison Search</h1>
         <img className="checkmark" style={checkStyle1} src="../images/checkmark.png" />
-        <div className="card searchDiv" placeholder="First URL"ref="searchBox1" contentEditable
+        <div className="card searchDiv" ref="searchBox1" contentEditable
           style={this.state.color1}
           onInput={this.handleChange.bind(this, 'searchBox1')}
           onPaste={this.handlePaste.bind(this, 'searchBox1')}

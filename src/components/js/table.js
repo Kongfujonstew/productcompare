@@ -7,8 +7,6 @@ const createInBoxRow = (inBox1, inBox2) => {
   for (let item of inBox2) {
     inBoxRow[2] += item + ' ,';
   };
-  // inBox1[1].slice(-2);
-  // inBox1[2].slice(-2);
   return inBoxRow;
 };
 
@@ -21,7 +19,6 @@ const createFeatureRows = (f1, f2) => {
       f2Feature = f2[feature];
       f2FeaturesAdded.push(feature);
     }
-    // console.log('pusing to feature Rows: ', [feature, f1[feature], f2Feature]);
     featureRows.push([feature, f1[feature], f2Feature]);
   };
 
@@ -34,7 +31,9 @@ const createFeatureRows = (f1, f2) => {
 }
 
 export default (productData1, productData2) => {
-  console.log(productData2.product, productData1.product);
+  console.log('Displaying product details for:');
+  console.log('1.', productData1.product);
+  console.log('2. ', productData2.product);
   let tableRows = [];
   let productRows = [];
   let featureRows;

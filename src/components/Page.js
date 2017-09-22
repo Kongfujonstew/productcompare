@@ -14,7 +14,7 @@ class Page extends React.Component {
           <p>{title}</p>
           <p>{content}</p>
         </div>
-        <div className="button pageButton"
+        <div className="button"
           onClick={() => this.props.history.push('/')}
         >Home</div>
       </section>

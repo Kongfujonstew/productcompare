@@ -10,39 +10,39 @@ import html from './src/templates/home';
 
 const app = express();
 const port = 8888;
-app.use(morgan('dev'));
+
+// app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, './src/public')));
 
 app.use((req, res, next) => {
-  console.log('request received, loggedIn: ', req.cookies.loggedIn);
+  console.log('Request received');
   next();
-})
+});
+
+app.get('/', (req, res) => {
+  console.log('Delivering html and app.js/bundle link')
+  res.write(html);
+  res.end();
+});
 
 app.post('/login', (req, res) => {
   login(req, res);
 });
 
-app.post('/logout', (req, res) => {
-  logout(req, res);
-});
-
-// app.use(authenticate);
-
-app.use('/admin', (req, res) => {
-});
+app.use(authenticate);
 
 app.use('/search', (req, res) => {
-  console.log('search request received');
+  console.log('Search request received');
   getProductData(req, res);
 });
 
 app.use((req, res) => {
+  console.log('Delivering html and app.js/bundle link')
   res.write(html);
   res.end();
 });
 
-//sync with db then create server
-app.listen(port, () => console.log('Please navigate to http://localhost:8888'));
+app.listen(port, () => console.log('Welcome!  Please navigate to http://localhost:8888'));

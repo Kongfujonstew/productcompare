@@ -23,6 +23,7 @@ class Main extends React.Component {
   }
 
   componentDidMount () {
+    console.log('Welcome');
     browserAuthenticate(this);
   }
 

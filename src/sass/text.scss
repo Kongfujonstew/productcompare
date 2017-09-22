@@ -1,0 +1,18 @@
+.login, .page p, ul, a, .button {
+  font-size: $main-text-size;
+}
+
+h1 {
+  color: $main-text-color;
+  font-size: $main-text-size;
+  margin: $main-text-margin;
+  text-transform: $main-text-bold;
+}
+
+.clickable {
+  text-decoration-style: underline;
+  color: $highlight-color;
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -35,9 +35,9 @@ class Results extends React.Component {
               productData1={this.props.productData1}
               productData2={this.props.productData2}
             />
-            <div className="button resultsButton"
+            <div className="button"
               onClick={() => this.props.history.push('/')}
-            >Back</div>
+            >Home</div>
           </div>
         }
       </section>

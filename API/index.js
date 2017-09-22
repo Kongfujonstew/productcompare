@@ -24,7 +24,7 @@ const parseBody = (html) => {
     let property = $(tr).children().first().text().trim();
     let value = $(tr).children().eq(1).text().trim();
     productDataObj.generalFeatures[property] = value;
-  })
+  });
   return productDataObj;
 };
 
@@ -35,16 +35,18 @@ export default (req, res) => {
   let htmlData2;
   let response = {};
 
-  console.log('getting data for: ', url1, url2);
+  console.log('Getting data for urls: ', url1, url2);
 
   getHTML(url1).then((data1) => {
     htmlData1 = data1.data;
     const productData1 = parseBody(htmlData1);
+    console.log('pD1: ', productData1);
+    console.log('Retrieving and parsing data . . . ');
     getHTML(url2).then((data2) => {
       htmlData2 = data2.data;
       const productData2 = parseBody(htmlData2);
-      console.log('pD1: ', productData1);
       response = { productData1, productData2 };
+      console.log('Complete. Sending parsed data to client');
       res.send(JSON.stringify(response));
     }).catch((err) => console.log('pageData2 error: ', err));
   }).catch((err) => console.log('pageData1 error: ', err));
