@@ -1,27 +1,50 @@
 import React from 'react';
 import { render } from 'react-dom';
+import createTableRows from './js/table';
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tableRows: []
+    };
   }
 
-  componentDidMount () {
+  componentDidMount() {
+    if (this.props.productData1.product && this.props.productData2.product) {
+      this.createTableRows();
+    };
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('pD1 on Table: ', nextProps.productData1);
+  createTableRows () {
+    let newTableRows = createTableRows(this.props.productData1, this.props.productData2);
+    this.setState({
+      tableRows: newTableRows
+    });
   }
 
   render () {
     return (
-      <div className="table">
-        { this.props.productData1 ?
-          <div>
-            <h1>results</h1>
-            <p>{this.props.productData1.product}</p>
-            <p>{this.props.productData2.product}</p>
-            <img src={this.props.productData1.pictureDataURL} width="100px" />
+      <div>
+        {this.state.tableRows.length ?
+          <div className="card tableCard">
+            <h1> </h1>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Comparison</th>
+                  <th><img src={this.props.productData1.pictureDataURL} width="100px" /></th> 
+                  <th><img src={this.props.productData2.pictureDataURL} width="100px" /></th>
+                </tr>
+                {this.state.tableRows.map((row, index) => {
+                  return <tr key={index}>
+                    <td>{row[0]}</td>
+                    <td>{row[1]}</td>
+                    <td>{row[2]}</td>
+                  </tr>
+                })}
+              </tbody>
+            </table>
           </div> : 
           <h1>No results to display</h1>
         }

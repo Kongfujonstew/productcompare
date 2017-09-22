@@ -10,11 +10,13 @@ class Home extends React.Component {
   render () {
     return (
       <section className="home">
+        <div className="welcome"></div>
         <Search
           updateProductData={this.props.updateProductData.bind(this)}
           updateLoadingState={this.props.updateLoadingState.bind(this)}
           browserAuthenticate={this.props.browserAuthenticate.bind(this)}
           updateUserMessage={this.props.updateUserMessage.bind(this)}
+          loggedIn={this.props.loggedIn}
         />
       </section>
     )

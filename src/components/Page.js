@@ -10,8 +10,13 @@ class Page extends React.Component {
     const { title, content } = this.props.page;
     return (
       <section className="page">
-        <h1>{title}</h1>
-        <p>{content}</p>
+        <div className="card">
+          <p>{title}</p>
+          <p>{content}</p>
+        </div>
+        <div className="button pageButton"
+          onClick={() => this.props.history.push('/')}
+        >Home</div>
       </section>
     )
   }

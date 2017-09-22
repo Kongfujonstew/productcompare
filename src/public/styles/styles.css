@@ -1,4 +1,6 @@
-body, html, div, h1, form, img, p, ul {
+/*Base and Resets*/
+
+body, html, div, h1, form, img, p, ul, tr {
   font-size: 1em;
   font-family: raleway;
   margin: 0;
@@ -11,7 +13,7 @@ html {
   background-repeat: none;
   background-size: cover;
   background-position: center;
-  min-width: 560px;
+  min-width: 700px;
 }
 
 main {
@@ -21,6 +23,27 @@ main {
 a {
   color: black;
   text-decoration: none;
+}
+
+/*Text*/
+
+h1, .login, .page p, ul, a, .button {
+  font-size: 22px;
+}
+
+h1 {
+  color: white;
+  margin: 30px;
+  text-transform: bold;
+}
+
+.clickable {
+  text-decoration-style: underline;
+  color: lightgreen;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }
 
 /*Header and Footer*/
@@ -34,12 +57,46 @@ header, footer {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
 
+/*Buttons and Cards*/
+
+.button {
+  background: #4f4f4f;
+  color: white;
+  line-height: 2em;
+  box-shadow: 2px 2px 2px 1px black;
+  margin: 30px;
+  text-align: center;
+  text-transform: bold;
+  width: 15%;
+  transition: all .25s ease-out transform;
+}
+
+.button:hover {
+  color: lightgreen;
+  cursor: pointer;
+}
+
+.button:active {
+  box-shadow: 1px 1px 1px 1px black;
+  transform: translateX(1px);
+  transform: translateY(1px);
+}
+
+.card {
+  border: 2px solid white;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 1px black;
+  line-height: 2em;
+  margin: 15px 30px;
+}
+
 /*Nav*/
+
 nav {
   text-align: right;
   line-height: 3em;
@@ -60,6 +117,7 @@ nav a {
 }
 
 /*Login*/
+
 .login {
   line-height: 2em;
   overflow: hidden;
@@ -69,7 +127,7 @@ nav a {
   float: left;
   overflow: hidden;
   padding-left: 10px;
-  width: 50%;
+  width: 70%;
 }
 
 .login .toggle {
@@ -81,28 +139,36 @@ nav a {
   cursor: pointer;
 }
 
+/*Home and Welcome*/
+.welcome {
+  background-image: url('../images/welcome.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 15px auto 0 auto;
+  width: 200px;
+  height: 70px;
+}
+
+
+/*Search and Action*/
+
 .search {
   clear: left;
 }
 
 .searchDiv {
-  background: rgba(0, 0, 0, .5);
-  border: 2px solid white;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 2px 1px black;
-  color: black;
-  line-height: 2em;
-  margin: 15px 30px;
   max-height: 2em;
   max-width: 900px;
   outline: none;
   overflow: hidden;
   opacity: .7;
+  margin-left: 90px;
   padding-left:  1em;
   padding-right: 1em;
   text-align: left;
   text-transform: bold;
-  width: 15%;
+  width: 12%;
   transition: all .5s ease-out;
 }
 
@@ -110,23 +176,69 @@ nav a {
   width: 62%;
 }
 
-.buttonStyle {
-  background: #4f4f4f;
-  /*background-color: white;*/
-  color: white;
-  line-height: 2em;
-  /*opacity: .7;*/
-  box-shadow: 2px 2px 2px 1px black;
-  text-align: center;
-  text-transform: bold;
-  width: 15%;
-  transition: all .25s ease-out;
+.checkmark {
+  display: inline-block;
+  float: left;
+  margin-left: 30px;
+  opacity: 0;
+  width: 40px;
+  -webkit-filter: brightness(160%);
+  transition: all .5s ease-in;
 }
 
-.buttonStyle:hover {
-  /*background: #edf9d6;*/
-  /*box-shadow: 2px 2px 2px 1px #324c01;*/
-  color: lightgreen;
-  cursor: pointer;
-  /*transform: translate(10px 1px);*/
+.actionButton {
+  margin: 0 auto;
 }
+
+/*Results*/
+
+.resultsButton {
+  margin-bottom: 70px;
+}
+
+/*Table*/
+
+.tableCard {
+  background-color: rgba(255,255,255,.7);
+  padding: 15px 5px 5px 5px;
+  /*border-color: rgba(255,255,255,.7);*/
+}
+
+td {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.5em;
+  text-transform: bold;
+  border-top: 1px solid grey;
+}
+
+/*Pages*/
+
+.page .card {
+  background-color: rgba(255,255,255,.7);
+  margin: 30px auto;
+  padding: 30px;
+  width: 80%;
+}
+
+.pageButton {
+  margin: 135px auto;
+}
+
+/*Loader*/
+.loader {
+    border: 16px solid rgba(255,255,255,.7);
+    border-top: 16px lightgreen;
+    border-radius: 50%;
+    margin: 100px auto;
+    width: 100px;
+    height: 100px;
+    animation: rotate 1.3s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

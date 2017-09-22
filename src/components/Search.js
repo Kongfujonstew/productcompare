@@ -11,12 +11,13 @@ class Search extends React.Component {
     this.state = {
       color1: {backgroundColor: 'white'},
       color2: {backgroundColor: 'white'},
+      showIcon1: false,
+      showIcon2: false,
       allowSearch: false
     };
   }
 
   handlePaste (searchBox, e) {
-    console.log('handleP called, searchBox: ', searchBox);
     e.preventDefault();
     let text = '';
     if (e.clipboardData && e.clipboardData.getData) {
@@ -29,26 +30,30 @@ class Search extends React.Component {
   }
 
   handleChange (searchBox) {
-    console.log('handle Change called, text: ', this.refs[searchBox].innerText);
     let num = searchBox[searchBox.length - 1];
     let url1IsValid = this.validURL(this.refs.searchBox1.innerText);
     let url2IsValid = this.validURL(this.refs.searchBox2.innerText);
     this.setState({
-      color1: {backgroundColor: url1IsValid ? 'forestgreen': 'white'},
-      color2: {backgroundColor: url2IsValid ? 'forestgreen' : 'white'},
+      showIcon1: url1IsValid,
+      showIcon2: url2IsValid,
+      color1: {
+        backgroundColor: url1IsValid ? 'forestgreen': 'white',
+      },
+      color2: {
+        backgroundColor: url2IsValid ? 'forestgreen' : 'white',
+      },
       allowSearch: url2IsValid && url1IsValid
     });
     if (this.validURL(this.refs['searchBox' + num].innerText)) {this.refs['searchBox' + num].blur()};
   }
 
   validURL (url) {
-    console.log('validing string URL: ', url);
-    url = (url.slice(0, 20) === 'http://www.lazada.sg');
-    return !!url;
+    let urlhttps = (url.slice(0, 18) === 'https://www.lazada');
+    let urlo = (url.slice(0, 17) === 'http://www.lazada');
+    return !!urlo || !!urlhttps;
   }
 
   search () {
-    console.log('called search');
     this.props.browserAuthenticate('You are logged out. Please log in.');
     if (isLoggedIn()) {
       const url1 = this.refs.searchBox1.innerText;
@@ -67,14 +72,20 @@ class Search extends React.Component {
   }
 
   render () {
+    let checkStyle1 = {opacity: this.state.showIcon1 ? 1 : 0}
+    let checkStyle2 = {opacity: this.state.showIcon2 ? 1 : 0}
+
     return (
-      <div className="search">Hello from Search
-        <div className="searchDiv" ref="searchBox1" contentEditable
+      <div className="search">
+        <h1>Product Comparison Search</h1>
+        <img className="checkmark" style={checkStyle1} src="../images/checkmark.png" />
+        <div className="card searchDiv" placeholder="First URL"ref="searchBox1" contentEditable
           style={this.state.color1}
           onInput={this.handleChange.bind(this, 'searchBox1')}
           onPaste={this.handlePaste.bind(this, 'searchBox1')}
         ></div>
-        <div className="searchDiv" ref="searchBox2" contentEditable
+        <img className="checkmark" style={checkStyle2} src="../images/checkmark.png" />
+        <div className="card searchDiv" ref="searchBox2" contentEditable
           style={this.state.color2}
           onInput={this.handleChange.bind(this, 'searchBox2')}
           onPaste={this.handlePaste.bind(this, 'searchBox2')}
@@ -82,6 +93,7 @@ class Search extends React.Component {
         <Action
           search={this.search.bind(this)}
           allowSearch={this.state.allowSearch}
+          loggedIn={this.props.loggedIn}
         />
       </div>
     )

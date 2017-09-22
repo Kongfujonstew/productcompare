@@ -73,7 +73,6 @@ class Main extends React.Component {
           path="/results"
           exact
           render={(props) => (<Results {...props}
-            updateProductData={this.updateProductData.bind(this)}
             updateLoadingState={this.updateLoadingState.bind(this)}
             browserAuthenticate={this.browserAuthenticate.bind(this)}
             updateUserMessage={this.updateUserMessage.bind(this)}
@@ -89,6 +88,7 @@ class Main extends React.Component {
             updateProductData={this.updateProductData.bind(this)}
             updateLoadingState={this.updateLoadingState.bind(this)}
             browserAuthenticate={this.browserAuthenticate.bind(this)}
+            loggedIn={this.state.loggedIn}
             updateUserMessage={this.updateUserMessage.bind(this)}
           />)}
         />
