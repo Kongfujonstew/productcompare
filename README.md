@@ -1,5 +1,16 @@
 Installation
+1) yarn install
+2) yarn start
 
+Heroku Deployment
+https://lazadapcs.herokuapp.com
+
+Demo
+1) Navigate to http://localhost:8888
+2) Click Login
+3) Enter two URLs
+4) Click Search, view results
+5) Click Back to return to Home
 
 
 Frontend Tech and Features
