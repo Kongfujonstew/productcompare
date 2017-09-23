@@ -1,11 +1,11 @@
-Installation
+Installation:
 1) yarn install
 2) yarn start
 
-Heroku Deployment
+Heroku Deployment:
 https://lazadapcs.herokuapp.com
 
-Demo
+Demo:
 1) Navigate to http://localhost:8888
 2) Click Login
 3) Enter two URLs
@@ -13,7 +13,7 @@ Demo
 5) Click Back to return to Home
 
 
-Frontend Tech and Features
+Frontend Tech and Features:
 -React browser app with double url input and search
 -Webpack app bundle build (production and dev modes)
 -Gulp compiled SASS styles
@@ -24,7 +24,7 @@ Frontend Tech and Features
 -URL input validation
 -Interactive visual design
 
-Server Tech and Features
+Server Tech and Features:
 -Node.js/Express server
 -Simplified auth middleware
 -Search API
