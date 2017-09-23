@@ -78,6 +78,12 @@ nav {
   }
 }
 
+@-webkit-keyframes pulse  {
+  0% {background-color:$highlight-color;} 
+  50% {background-color: gold;}
+  100% {background-color: $highlight-color;}
+}
+
 /*Home and Welcome*/
 .welcome {
   background-image: $welcome-image;

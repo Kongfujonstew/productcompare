@@ -10,12 +10,15 @@ class Login extends React.Component {
   }
 
   render () {
-    const style = {
+    const loggingInStyle = {
+      animation: "pulse 1s infinite"
+    };
+    const staticStyle = {
       backgroundColor: this.props.loggedIn ? "lightgreen" : "gold"
     };
 
     return (
-      <div className="login" style={style}>
+      <div className="login" style={this.props.loggingIn ? loggingInStyle : staticStyle}>
         <p className="userMessage">{this.props.userMessage}</p>
           {this.props.loggedIn ? 
             <div className="toggle" onClick={this.props.logout}>Logout</div> :

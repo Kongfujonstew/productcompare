@@ -130,6 +130,14 @@ nav {
     .login .toggle:hover {
       cursor: pointer; }
 
+@-webkit-keyframes pulse {
+  0% {
+    background-color: lightgreen; }
+  50% {
+    background-color: gold; }
+  100% {
+    background-color: lightgreen; } }
+
 /*Home and Welcome*/
 .welcome {
   background-image: url("../images/welcome.png");

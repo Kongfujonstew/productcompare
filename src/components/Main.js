@@ -15,6 +15,7 @@ class Main extends React.Component {
     super();
     this.state = {
       loggedIn: false,
+      loggingIn: false,
       userMessage: 'Please log in. You must log in to search. ->',
       loading: false,
       productData1: {},
@@ -41,8 +42,15 @@ class Main extends React.Component {
   } 
 
   mainLogin () {
+    this.updateUserMessage('Logging in user . . .');
+    this.setState({
+      loggingIn: true
+    });
     login().then(() => {
       browserAuthenticate(this);
+      this.setState({
+        loggingIn: false
+      });
     });
   }
 
@@ -65,6 +73,7 @@ class Main extends React.Component {
         <Nav />
         <Login 
           loggedIn={this.state.loggedIn}
+          loggingIn={this.state.loggingIn}
           userMessage={this.state.userMessage}
           login={this.mainLogin.bind(this)}
           logout={this.mainLogout.bind(this)}
