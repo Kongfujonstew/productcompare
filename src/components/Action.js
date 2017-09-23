@@ -10,7 +10,7 @@ class Action extends React.Component {
     const allowSearch = 'allowSearch';
     const disallowSearch = 'disallowSearch';
     const enterURLsPrompt = `Please login by clicking Login. Then enter two valid URLs.
-      URLs must begin with "http://www.lazada.sg" or "https://www.lazada.sg" to be valid.`;
+      URLs must begin with "http://www.lazada.sg" OR "https://www.lazada.sg".`;
     const clickPrompt = `Great!  You\'ve entered two valid URLs.
       Please click Search.`;
 

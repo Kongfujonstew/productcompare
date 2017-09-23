@@ -16,3 +16,7 @@ h1 {
     cursor: pointer;
   }
 }
+
+.highlight-color {
+  color: darken($highlight-color, 35%);
+}

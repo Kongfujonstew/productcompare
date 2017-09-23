@@ -28,7 +28,7 @@ class Results extends React.Component {
             <div className="loader"></div> 
           </div> :
           <div>
-            <h1>Results. Please click <span className="clickable"
+            <h1>Please click <span className="clickable"
               onClick={() => this.props.history.push('/')}
             >back</span> to search again.</h1>
             <Table

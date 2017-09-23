@@ -28,7 +28,7 @@ class Table extends React.Component {
       <div className="table">
         {this.state.tableRows.length ?
           <div className="card">
-            <h1> </h1>
+            <h1>Results</h1>
             <table>
               <tbody>
                 <tr>

@@ -1,6 +1,6 @@
-body, html, div, h1, form, img, p, ul, tr {
+body, html, div, h1, form, section, img, p, ul, tr {
   font-size: 1em;
-  font-family: raleway;
+  font-family: raleway, Helvetica;
   margin: 0;
   padding: 0; }
 
@@ -57,6 +57,9 @@ h1 {
   color: lightgreen; }
   .clickable:hover {
     cursor: pointer; }
+
+.highlight-color {
+  color: #1bb01b; }
 
 .loader {
   border: 16px solid rgba(255, 255, 255, 0.7);
@@ -166,19 +169,19 @@ nav {
   margin: 30px auto 0 auto; }
 
 /*Results and Table*/
-.results .button {
-  margin-bottom: 70px; }
-
-.results .table .card {
-  padding: 15px 5px 5px 5px; }
-
-.results .table td {
-  padding: 5px;
-  overflow: hidden;
-  font-size: 12px;
-  line-height: 1.5em;
-  text-transform: bold;
-  border-top: 1px solid grey; }
+.results {
+  padding-bottom: 45px; }
+  .results .button {
+    margin-bottom: 200px; }
+  .results .table .card {
+    padding: 15px 5px 5px 5px; }
+  .results .table td {
+    padding: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.5em;
+    text-transform: bold;
+    border-top: 1px solid grey; }
 
 /*Pages*/
 .page .card {

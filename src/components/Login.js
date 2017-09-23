@@ -19,7 +19,7 @@ class Login extends React.Component {
         <p className="userMessage">{this.props.userMessage}</p>
           {this.props.loggedIn ? 
             <div className="toggle" onClick={this.props.logout}>Logout</div> :
-            <div className="toggle" onClick={this.props.login}>Login</div>
+            <div className="toggle highlight-color" onClick={this.props.login}>Login</div>
           }
       </div>
     )
