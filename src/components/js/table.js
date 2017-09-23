@@ -43,7 +43,5 @@ export default (productData1, productData2) => {
   productRows.push(createInBoxRow(productData1.inBox, productData2.inBox));
   featureRows = createFeatureRows(productData1.generalFeatures, productData2.generalFeatures);
   tableRows = productRows.concat(featureRows);
-  // console.log('featureRows: ', featureRows);
-  // console.log('return tableRows: ', tableRows);
   return tableRows;
 };

@@ -9,7 +9,7 @@ import { authenticate, login, logout } from './middleware/auth/index';
 import html from './src/templates/home';
 
 const app = express();
-const port = 8888;
+const port = process.env.PORT || 8888;
 
 // app.use(morgan('dev'));
 app.use(cookieParser());

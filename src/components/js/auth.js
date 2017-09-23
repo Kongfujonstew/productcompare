@@ -1,10 +1,11 @@
 import axios from 'axios';
 import cookies from 'browser-cookies';
+import thisurl from './thisurl';
 
 export const login = () => {
-  console.log('Logging user in . . . ');
-  const api = 'http://localhost:8888/login';
-  return axios.post(api).catch((err) => console.log('login error: ', err));
+  console.log('Logging user in from server');
+  console.log(thisurl);
+  return axios.post(thisurl + '/login').catch((err) => console.log('login error: ', err));
 };
 
 export const logout = () => {
@@ -35,4 +36,3 @@ export const warnUser = (main, message) => {
     userMessage: message
   });
 };
-

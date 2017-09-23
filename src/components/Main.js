@@ -84,7 +84,6 @@ class Main extends React.Component {
         />
         <Route 
           path="/"
-          exact
           render={(props) => (<Home {...props}
             updateProductData={this.updateProductData.bind(this)}
             updateLoadingState={this.updateLoadingState.bind(this)}

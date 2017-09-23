@@ -1,9 +1,9 @@
 import axios from 'axios';
+import thisurl from './thisurl';
 
 export const getProductData = (url1, url2) => {
   console.log('Searching');
-  const api = 'http://localhost:8888/search';
-  return axios.post(api, {
+  return axios.post(thisurl + '/search', {
     data: {
       url1,
       url2
