@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/components/*.js exit 0",
     "test": "test",
-    "start": "nodemon server.js --exec babel-cli --presets babel-preset-es2015",
+    "start": "nodemon server.js --exec babel-node --presets babel-preset-es2015",
     "dev": "NODE_ENV='development' webpack --watch",
     "build": "NODE_ENV='production' webpack --env.prod -p"
   },
