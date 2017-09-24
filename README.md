@@ -21,6 +21,7 @@ Frontend Tech and Features:
 -Webpack app bundle build (production and dev modes)
 -Gulp compiled SASS styles
 -ES6, Babel compilation
+-HTML5 and CSS3
 -Simple cookie-based auth system
 -React Router 4 browser routing
 -Page navigation
