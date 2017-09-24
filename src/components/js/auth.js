@@ -3,13 +3,13 @@ import cookies from 'browser-cookies';
 import thisurl from './thisurl';
 
 export const login = () => {
-  console.log('Logging user in from server');
+  console.log('Logging user in from server:');
   console.log(thisurl);
   return axios.post(thisurl + '/login').catch((err) => console.log('login error: ', err));
 };
 
 export const logout = () => {
-  console.log('Logging user out.');
+  console.log('Logging user out');
   cookies.set('loggedIn', 'false');
 };
 

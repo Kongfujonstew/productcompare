@@ -16,7 +16,7 @@ class Main extends React.Component {
     this.state = {
       loggedIn: false,
       loggingIn: false,
-      userMessage: 'Please log in. You must log in to search. ->',
+      userMessage: 'Please log in. You must log in to search.',
       loading: false,
       productData1: {},
       productData2: {}
@@ -25,6 +25,7 @@ class Main extends React.Component {
 
   componentDidMount () {
     console.log('Welcome');
+    console.log('Please log in to enable search');
     browserAuthenticate(this);
   }
 

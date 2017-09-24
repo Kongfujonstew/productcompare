@@ -5,8 +5,10 @@ Installation:
 Heroku Deployment:
 https://lazadapcs.herokuapp.com
 
+Note: Expect a 30 second lag while Heroku dynos activate.  Dynos will sleep after 30 minutes of no activity.
+
 Demo:
-1) Navigate to http://localhost:8888
+1) Navigate to http://localhost:8888 or https://lazadapcs.herokuapp.com
 2) Click Login
 3) Enter two URLs
 4) Click Search, view results
@@ -15,13 +17,13 @@ Demo:
 
 Frontend Tech and Features:
 -React browser app with double url input and search
+-URL input validation
 -Webpack app bundle build (production and dev modes)
 -Gulp compiled SASS styles
--Babel ES6 compilation
+-ES6, Babel compilation
 -Simple cookie-based auth system
 -React Router 4 browser routing
 -Page navigation
--URL input validation
 -Interactive visual design
 
 Server Tech and Features:
